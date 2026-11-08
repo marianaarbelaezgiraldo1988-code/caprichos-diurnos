@@ -11,6 +11,7 @@
   const claseCategoria = (c) => 'cat-' + c.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
 
   function urlImagen(ruta) {
+    const urlApi = (ruta) => (window.DULCE_API ? window.DULCE_API + ruta : new URL(ruta.slice(1), raiz).href);
     if (!ruta) return null;
     try {
       const url = new URL(String(ruta).replace(/^\/+/, ''), raiz);
@@ -74,7 +75,7 @@
 
     let productos = null;
     try {
-      const respuesta = await fetch(new URL('api/productos', raiz).href + '?categoria=' + encodeURIComponent(categoria), { cache: 'no-store' });
+            const respuesta = await fetch(urlApi('/api/productos') + '?categoria=' + encodeURIComponent(categoria), { cache: 'no-store' });
       if (!respuesta.ok) throw new Error('Respuesta ' + respuesta.status);
       productos = await respuesta.json();
       guardar(clave, productos);
