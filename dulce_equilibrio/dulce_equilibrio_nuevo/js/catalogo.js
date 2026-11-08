@@ -75,7 +75,7 @@
 
     let productos = null;
     try {
-            const respuesta = await fetch(urlApi('/api/productos') + '?categoria=' + encodeURIComponent(categoria), { cache: 'no-store' });
+      const respuesta = await fetch(urlApi('/api/productos') + '?categoria=' + encodeURIComponent(categoria), { cache: 'no-store' });
       if (!respuesta.ok) throw new Error('Respuesta ' + respuesta.status);
       productos = await respuesta.json();
       guardar(clave, productos);
