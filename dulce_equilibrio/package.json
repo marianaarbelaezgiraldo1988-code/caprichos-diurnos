@@ -1,0 +1,21 @@
+{
+  "name": "dulce-equilibrio",
+  "version": "1.0.0",
+  "description": "Sitio web Dulce Equilibrio con formulario de contacto y panel de administración conectados a MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "crear-admin": "node scripts/crear-admin.js",
+    "importar-productos": "node scripts/importar-productos.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.3.0",
+    "mongoose": "^9.12.0"
+  }
+}

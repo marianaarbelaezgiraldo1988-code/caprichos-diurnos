@@ -1,0 +1,291 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #f4f3e9;
+  background: radial-gradient(
+    ellipse at top,
+    #057e56b7 0%,
+    #17251c 55%,
+    #101712 100%
+  );
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.page {
+  width: min(960px, 100%);
+}
+
+/* ENCABEZADO */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 14px;
+  max-width: 800px;
+}
+
+.eyebrow {
+  color: #c4d5a4;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  font-weight: 800;
+  margin: 0 0 5px;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -.05em;
+}
+
+h1 span {
+  color: #b8d28c;
+}
+
+/* PUNTUACIÓN */
+
+.scorebox {
+  background: #101a13cc;
+  border: 1px solid #b8d28c55;
+  border-radius: 14px;
+  padding: 8px 18px;
+  min-width: 88px;
+  text-align: center;
+}
+
+.scorebox small {
+  display: block;
+  color: #b8d28c;
+  font-size: .62rem;
+  letter-spacing: .15em;
+  font-weight: 800;
+}
+
+.scorebox strong {
+  font-size: 1.45rem;
+}
+
+/* ÁREA DEL JUEGO */
+
+.game-shell {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border: 3px solid #b8d28c;
+  border-radius: 18px;
+  background: #000;
+  box-shadow: 0 22px 60px #0008;
+}
+
+.game {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #000;
+}
+
+/* FONDO */
+
+.forest {
+  position: absolute;
+  inset: 0;
+  background: #080000 url("assets/fondo.jpg") center / cover no-repeat;
+}
+
+/* CARRETERA */
+
+.road {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: -1%;
+  height: 102%;
+  width: 49%;
+  transform: translateX(-50%);
+  object-fit: fill;
+  pointer-events: none;
+}
+
+/* enemigos */
+
+.obstacles {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* MAPACHES */
+
+.sprite {
+  position: absolute;
+  z-index: 4;
+  object-fit: fill;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* MAPACHE PRINCIPAL */
+
+.player {
+  width: 8.5%;
+  height: 16.7%;
+  left: 50%;
+  top: 76%;
+  transform: translate(-50%, -50%);
+}
+
+/* OBSTÁCULOS */
+.obstacle {
+  transform: translate(-50%, -50%);
+}
+
+.enemy1 {
+  width: 15%;
+  height: 23%;
+}
+
+.enemy2 {
+  width: 9.5%;
+  height: 15.7%;
+}
+
+.enemy3 {
+  width: 30%;
+  height: 32%;
+  object-fit: contain;
+}
+
+.log-obstacle {
+  width: 25%;
+  height: 18%;
+  object-fit: contain;
+}
+
+/* Movimiento carriles */
+.player {
+  transition: left 150ms cubic-bezier(.2, .75, .25, 1);
+  will-change: left;
+}
+
+/* PANTALLA DE INICIO Y GAME OVER */
+
+.overlay {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: #08100bc9;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.panel {
+  width: min(390px, 100%);
+  padding: 30px 26px;
+  text-align: center;
+  border-radius: 18px;
+  background: #016834a2;
+  border: 1px solid #49044966;
+  box-shadow: 0 12px 45px #0008;
+}
+
+.panel h2 {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  margin: 7px 0;
+}
+
+.panel p:not(.eyebrow) {
+  color: #d3ddcc;
+  line-height: 1.5;
+}
+
+/* BOTONES */
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: #172317;
+  background: #c3dc91;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #78945a;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #78945a;
+}
+
+.hint {
+  font-size: .78rem;
+  margin: 17px 0 0;
+  opacity: .8;
+}
+
+/* CONTROLES PARA CELUKO */
+
+.touch-controls {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin: 15px auto 8px;
+}
+
+.touch-controls button {
+  width: 76px;
+  height: 48px;
+  padding: 0;
+  font-size: 1.2rem;
+  background: #d1e5a8;
+}
+
+/* TEXTO INFERIOR */
+
+.footer-note {
+  text-align: center;
+  color: #b5c5ae;
+  font-size: .8rem;
+  margin: 10px 0 0;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 700px) {
+  .touch-controls {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 14px 10px;
+  }
+
+  .panel {
+    padding: 22px 16px;
+  }
+}

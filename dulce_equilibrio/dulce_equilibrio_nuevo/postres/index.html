@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postres | Dulce Equilibrio</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="encabezado">
+<a class="logo" href="../index.html">Dulce Equilibrio</a>
+<button class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<nav class="navegacion" id="navegacion">
+<a href="../index.html">Inicio</a>
+<a href="../postres/index.html">Postres</a>
+<a href="../ejercicios/index.html">Ejercicios</a>
+<a href="../consejos/index.html">Consejos saludables</a>
+<a href="../contactanos/index.html">Contáctanos</a>
+<a href="../juego/index.html">Raccoon Road</a>
+</nav>
+<button class="boton-carrito" id="botonCarrito">🛒 Carrito <span id="cantidadCarrito">0</span></button>
+</header>
+  <main class="contenido">
+    <p class="etiqueta">DULCE EQUILIBRIO</p>
+    <h1> Postres</h1>
+    <p class="intro">postres deliciosos para disfrutar y compartir.</p>
+  
+
+    <a class="boton-principal" href="../index.html">Volver al inicio</a>
+
+  <section id="postres" data-categoria="Postres">
+    <p class="catalogo-aviso">Cargando productos...</p>
+</section>
+  </main>
+
+<aside class="panel-carrito" id="panelCarrito">
+
+  <div class="carrito-cabecera">
+      <h2>Tu carrito</h2>
+      <button id="cerrarCarrito" class="cerrar">×</button>
+  </div>
+
+  <ul id="listaCarrito">
+      <li class="carrito-vacio">
+          Todavía no has agregado elementos.
+      </li>
+  </ul>
+
+<p class="total-carrito">
+    Total: <strong id="totalCarrito">$0</strong>
+</p>
+
+  <button id="pedirWhatsApp" class="boton-pedir" type="button">Pedir por WhatsApp</button>
+    <button id="vaciarCarrito" class="boton-vaciar">
+      Vaciar carrito
+  </button>
+
+</aside>
+
+<div class="fondo-panel" id="fondoPanel"></div>
+
+<footer><p>© 2026 Dulce Equilibrio</p></footer>
+
+<script src="../js/script.js"></script>
+<script src="../js/catalogo.js"></script>
+
+
+<script>
+(() => {
+  if (!('serviceWorker' in navigator)) return;
+  const swPath = '../sw.js';
+  const swScope = '../';
+
+  navigator.serviceWorker.register(swPath, { scope: swScope })
+    .catch(error => console.warn('No se pudo activar el modo sin conexión:', error));
+
+  async function openOfflineGame() {
+    try {
+      await navigator.serviceWorker.ready;
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (!registration) return;
+      const offlineUrl = new URL('offline.html', registration.scope).href;
+      if (location.href !== offlineUrl) location.replace(offlineUrl);
+    } catch (error) {
+      console.warn('No se pudo abrir Raccoon Road sin conexión:', error);
+    }
+  }
+
+  window.addEventListener('offline', openOfflineGame);
+  if (!navigator.onLine) openOfflineGame();
+})();
+</script>
+
+</body>
+</html>

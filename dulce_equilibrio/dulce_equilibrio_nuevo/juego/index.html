@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d4b6d0">
+<title>Raccoon Road</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <div><p class="eyebrow">UN JUEGO MIENTRAS TE LLEGA EL WIFI</p><h1>Raccoon <span>Road</span></h1></div>
+    <div class="scorebox"><small>PUNTOS</small><strong id="score">0</strong></div>
+  </header>
+
+  <section class="game-shell" aria-label="Juego de carreras">
+    <div id="game" class="game">
+      <div class="forest"></div>
+      <img class="road" src="assets/carretera.png" alt="">
+      <div id="obstacles" class="obstacles"></div>
+      <img id="player" class="sprite player" src="assets/raccoon1.png" alt="Mapache jugador">
+      <div id="overlay" class="overlay">
+        <div class="panel">
+          <p class="eyebrow">¿list@ para empezar?</p>
+          <h2 id="panel-title">¡iniciemos!</h2>
+          <p id="panel-text">Esquiva los mapaches y recoge tantos puntos como puedas.</p>
+          <button id="start-btn">JUGAR</button>
+          <p class="hint">Usa ← → o A / D para moverte</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="touch-controls" aria-label="Controles táctiles">
+    <button id="left-btn" aria-label="Mover a la izquierda">◀</button>
+    <button id="right-btn" aria-label="Mover a la derecha">▶</button>
+  </nav>
+  <p class="footer-note">Evita los obstáculos · Sobrevive todo lo que puedas y diviertete</p>
+</main>
+<script src="game.js"></script>
+
+
+<script>
+(() => {
+  if (!('serviceWorker' in navigator)) return;
+  const swPath = '../sw.js';
+  const swScope = '../';
+
+  navigator.serviceWorker.register(swPath, { scope: swScope })
+    .catch(error => console.warn('No se pudo activar el modo sin conexión:', error));
+
+  async function openOfflineGame() {
+    try {
+      await navigator.serviceWorker.ready;
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (!registration) return;
+      const offlineUrl = new URL('offline.html', registration.scope).href;
+      if (location.href !== offlineUrl) location.replace(offlineUrl);
+    } catch (error) {
+      console.warn('No se pudo abrir Raccoon Road sin conexión:', error);
+    }
+  }
+
+  window.addEventListener('offline', openOfflineGame);
+  if (!navigator.onLine) openOfflineGame();
+})();
+</script>
+
+</body>
+</html>

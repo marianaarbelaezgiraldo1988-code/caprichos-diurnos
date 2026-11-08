@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Torta de vainilla",
+    "nombreCarrito": "Porcion torta de vainilla",
+    "categoria": "Tortas",
+    "descripcion": "deliciosa y esponjosa, perfecta para cualquier ocasión.",
+    "precio": 8000,
+    "imagen": "assets/img/torta-vainilla.jpg",
+    "color": "#ebdc99",
+    "disponible": true
+  },
+  {
+    "nombre": "Torta de naranja",
+    "nombreCarrito": "Porcion torta de naranja",
+    "categoria": "Tortas",
+    "descripcion": "deliciosa y refrescante, perfecta para los amantes del sabor cítrico.",
+    "precio": 8000,
+    "imagen": "assets/img/torta-naranja.jpg",
+    "color": "#ebdc99",
+    "disponible": true
+  },
+  {
+    "nombre": "Torta de avena",
+    "nombreCarrito": "Porcion torta de avena",
+    "categoria": "Tortas",
+    "descripcion": "nutritiva y deliciosa, perfecta para un desayuno saludable.",
+    "precio": 5000,
+    "imagen": "assets/img/torta-avena.jpg",
+    "color": "#ebdc99",
+    "disponible": true
+  },
+  {
+    "nombre": "Torta de banano",
+    "nombreCarrito": "Porcion torta de banano",
+    "categoria": "Tortas",
+    "descripcion": "deliciosa y nutritiva, perfecta para los amantes del sabor natural.",
+    "precio": 6000,
+    "imagen": "assets/img/torta-banano.jpg",
+    "color": "#ebdc99",
+    "disponible": true
+  },
+  {
+    "nombre": "Mousse de chocolate",
+    "nombreCarrito": "Mousse de chocolate",
+    "categoria": "Postres",
+    "descripcion": "cremoso y delicioso, echo para los amantes del chocolate.",
+    "precio": 8000,
+    "imagen": "assets/img/mousse-chocolate.jpg",
+    "color": "#96633f",
+    "disponible": true
+  },
+  {
+    "nombre": "Mousse de fresa",
+    "nombreCarrito": "Mousse de fresa",
+    "categoria": "Postres",
+    "descripcion": "suave y cremoso, ideal para los amantes de algo sencillo y rico.",
+    "precio": 8000,
+    "imagen": "assets/img/mousse-fresa.jpg",
+    "color": "#dd849f",
+    "disponible": true
+  },
+  {
+    "nombre": "Napoleón",
+    "nombreCarrito": "Napoleón",
+    "categoria": "Postres",
+    "descripcion": "un delicioso clasico para cada ocasión",
+    "precio": 5000,
+    "imagen": "assets/img/postre-napoleon.jpg",
+    "color": "#ddd084",
+    "disponible": true
+  },
+  {
+    "nombre": "Napoleón de limon",
+    "nombreCarrito": "Napoleón de limon",
+    "categoria": "Postres",
+    "descripcion": "delicioso postre, suave y refrescante, perfecto para los amantes del sabor cítrico.",
+    "precio": 6000,
+    "imagen": "assets/img/napoleon-limon.jpg",
+    "color": "#44974f",
+    "disponible": true
+  },
+  {
+    "nombre": "Galleta de mantequilla",
+    "nombreCarrito": "Galleta de mantequilla",
+    "categoria": "Galletas",
+    "descripcion": "pequeña pero con inmenso sabor.",
+    "precio": 500,
+    "imagen": "assets/img/galleta-mantequilla.jpg",
+    "color": "#a57136",
+    "disponible": true
+  },
+  {
+    "nombre": "galleta con chispas de chocolate",
+    "nombreCarrito": "galleta chispas de chocolate",
+    "categoria": "Galletas",
+    "descripcion": "la clasica que no pasa de moda.",
+    "precio": 2000,
+    "imagen": "assets/img/galletas-chocolate.jpg",
+    "color": "#a57136",
+    "disponible": true
+  },
+  {
+    "nombre": "Galleta de vainilla",
+    "nombreCarrito": "galleta de vainilla",
+    "categoria": "Galletas",
+    "descripcion": "un sabor delicioso y delicado",
+    "precio": 2000,
+    "imagen": "assets/img/galleta-vainilla.jpg",
+    "color": "#a57136",
+    "disponible": true
+  },
+  {
+    "nombre": "galleta de chocolate",
+    "nombreCarrito": "galleta de chocolate",
+    "categoria": "Galletas",
+    "descripcion": "perfecta para los amantes del chocolate.",
+    "precio": 3000,
+    "imagen": "assets/img/galleta-cacao.jpg",
+    "color": "#a57136",
+    "disponible": true
+  },
+  {
+    "nombre": "Postre de fresa",
+    "nombreCarrito": "Postre de fresa C",
+    "categoria": "Antojos creativos",
+    "descripcion": "delicioso y visualmente impresionante.",
+    "precio": 8000,
+    "imagen": "assets/img/Pfresa-creativo.jpg",
+    "color": "#fac2d5",
+    "disponible": true
+  },
+  {
+    "nombre": "Galletas con chispas de chocolate",
+    "nombreCarrito": "Galletas con chispas de chocolate C",
+    "categoria": "Antojos creativos",
+    "descripcion": "deliciosas y crujientes, perfectas para un aperitivo saludable y divertido.",
+    "precio": 5000,
+    "imagen": "assets/img/galleta-creativa.jpg",
+    "color": "#fac2d5",
+    "disponible": true
+  }
+]

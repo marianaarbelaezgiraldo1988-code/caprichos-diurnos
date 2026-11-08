@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Acceso al panel | Dulce Equilibrio</title>
+  <link rel="stylesheet" href="/admin/recursos/panel.css">
+</head>
+<body class="pagina-login">
+  <main class="tarjeta-login">
+    <p class="etiqueta">DULCE EQUILIBRIO</p>
+    <h1>Panel de administración</h1>
+    <p class="texto-suave">Ingresa con tu usuario y contraseña.</p>
+
+    <form id="formLogin" novalidate>
+      <label for="usuario">Usuario</label>
+      <input id="usuario" name="usuario" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required maxlength="40">
+
+      <label for="password">Contraseña</label>
+      <div class="campo-clave">
+        <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="200">
+        <button type="button" class="boton-texto" id="verClave" aria-pressed="false">Mostrar</button>
+      </div>
+
+      <p id="errorLogin" class="mensaje-error" role="alert" hidden></p>
+      <button type="submit" class="boton boton-principal" id="botonEntrar">Entrar</button>
+    </form>
+
+    <a class="enlace-volver" href="/">← Volver al sitio</a>
+  </main>
+  <script src="/admin/recursos/login.js"></script>
+</body>
+</html>

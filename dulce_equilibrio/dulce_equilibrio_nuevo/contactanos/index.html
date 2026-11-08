@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos | Dulce Equilibrio</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="encabezado">
+<a class="logo" href="../index.html">Dulce Equilibrio</a>
+<button class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<nav class="navegacion" id="navegacion">
+<a href="../index.html">Inicio</a>
+<a href="../postres/index.html">Postres</a>
+<a href="../ejercicios/index.html">Ejercicios</a>
+<a href="../consejos/index.html">Consejos saludables</a>
+<a href="../contactanos/index.html">Contáctanos</a>
+<a href="../juego/index.html">Raccoon Road</a>
+</nav>
+<button class="boton-carrito" id="botonCarrito">🛒 Carrito <span id="cantidadCarrito">0</span></button>
+</header>
+  <main class="contenido">
+    <p class="etiqueta">DULCE EQUILIBRIO</p>
+    <h1>Contáctanos</h1>
+    <p class="intro">Nos encantará conocer tus ideas y sugerencias.</p>
+        <h1 class="title p2">hablemos por:</h1>
+    <style>
+        h1 {
+            color: #71444d;
+            font-size: 50px;
+        }
+    </style>
+  
+
+<section class="form-container">
+  <form id="contactForm">
+    <fieldset>
+      <legend>Datos personales</legend>
+      
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" required minlength="3" maxlength="80" id="nombre" name="nombre">
+      </div>
+
+      <div class="form-group">
+        <label for="email-2">Gmail</label>
+        <input type="email" required maxlength="120" id="email-2" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required minlength="5" maxlength="1500"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="lugar">Lugar</label>
+        <select id="lugar" name="lugar">
+          <option value="Medellin">Medellín</option>
+          <option value="Bogota">Bogotá</option>
+          <option value="Cali">Cali</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="button">Enviar</button>
+    <p id="estadoContacto" aria-live="polite"></p>
+  </form>
+</section>
+
+
+<article class="contacto-Arbelaez">
+  <fieldset> <legend><h4>para pedir un capricho;</h4></legend>
+   <label for="">  <ul>
+    <li><a class="contacto1" href="mailto:marianaarbelaezgiraldo1988@gmail.com?subjet=encargo%20de%20postres&body=hola%20enviame%20por%20favor">Gmail:</a></p>marianaarbelaezgiraldo1988@gmail.com</p></li>
+    <li><a class="contacto1" href="https://wa.me/+573017528235">whatsapp:</a><p>3017528235</p></li>
+    <li><a class="contacto1" href="https://maps.app.goo.gl/GwZFcb2ecPy3GZuHA">punto de venta:</a><p>Medellin, Colombia </p></li>
+   </ul>
+   </label>
+  </fieldset>
+</article>
+
+
+<article class="contacto-Jaramillo">
+  <fieldset> <legend><h4>para pedir un consejo sano;</h4></legend>
+   <label for="">  <ul>
+    <li><a class="contacto1" href="mailto:jaramillo1978@gmail.com?subject=consejo%20sano&body=hola%20necesito%20un%20consejo%20sano">Gmail:</a></p>Jaramillo1978@gmail.com</p></li>
+    <li><a class="contacto1" href="https://wa.me/+573017528175">whatsapp:</a><p>3017528175</p></li>
+    <li><a class="contacto1" href="https://maps.app.goo.gl/...">punto de venta:</a><p>Medellin, Colombia </p></li>
+   </ul>
+   </label>
+  </fieldset>
+</article>
+
+
+
+
+
+
+    <a class="boton-principal" href="../index.html">Volver al inicio</a>
+  </main>
+  <aside class="panel-carrito" id="panelCarrito" aria-label="Contenido del carrito">
+<div class="carrito-cabecera"><h2>Tu carrito</h2><button id="cerrarCarrito" class="cerrar" aria-label="Cerrar carrito">×</button></div>
+<ul id="listaCarrito"><li class="carrito-vacio">Todavía no has agregado elementos.</li></ul>
+<p class="total-carrito">Total: <strong id="totalCarrito">$0</strong></p>
+<button id="pedirWhatsApp" class="boton-pedir" type="button">Pedir por WhatsApp</button>
+    <button id="vaciarCarrito" class="boton-vaciar">Vaciar carrito</button>
+</aside>
+<div class="fondo-panel" id="fondoPanel"></div>
+<footer><p>© 2026 Dulce Equilibrio</p></footer>
+<script src="../js/script.js"></script>
+<script src="../js/contacto.js"></script>
+
+
+<script>
+(() => {
+  if (!('serviceWorker' in navigator)) return;
+  const swPath = '../sw.js';
+  const swScope = '../';
+
+  navigator.serviceWorker.register(swPath, { scope: swScope })
+    .catch(error => console.warn('No se pudo activar el modo sin conexión:', error));
+
+  async function openOfflineGame() {
+    try {
+      await navigator.serviceWorker.ready;
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (!registration) return;
+      const offlineUrl = new URL('offline.html', registration.scope).href;
+      if (location.href !== offlineUrl) location.replace(offlineUrl);
+    } catch (error) {
+      console.warn('No se pudo abrir Raccoon Road sin conexión:', error);
+    }
+  }
+
+  window.addEventListener('offline', openOfflineGame);
+  if (!navigator.onLine) openOfflineGame();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulce Equilibrio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="encabezado">
+<a class="logo" href="index.html">Dulce Equilibrio</a>
+<button class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<nav class="navegacion" id="navegacion">
+<a href="index.html">Inicio</a>
+<a href="postres/index.html">Postres</a>
+<a href="ejercicios/index.html">Ejercicios</a>
+<a href="consejos/index.html">Consejos saludables</a>
+<a href="contactanos/index.html">Contáctanos</a>
+<a href="juego/index.html">Raccoon Road</a>
+</nav>
+<button class="boton-carrito" id="botonCarrito">🛒 Carrito <span id="cantidadCarrito">0</span></button>
+</header>
+
+  <main>
+    <section class="portada">
+      <div class="portada-texto">
+        <p class="etiqueta">PEQUEÑOS HÁBITOS, GRANDES MOMENTOS</p>
+        <h1>Un espacio para disfrutar y sentirte bien</h1>
+        <p>Descubre ideas dulces, movimiento y consejos para encontrar tu propio equilibrio.</p>
+        <a class="boton-principal" href="postres/index.html">Explorar postres</a>
+      </div>
+      <img class="imagen-portada" src="assets/img/portada.jpg" alt="Ilustración de un pastel con fresas">
+    </section>
+
+    <section class="contenido">
+      <p class="etiqueta">DESCUBRE</p>
+      <h2>Explora nuestro contenido</h2>
+      <p class="intro"> descubre, aprende a cuidarte, antojate y pide!!</p>
+
+      <div class="rejilla">
+<article class="tarjeta flexbox-1">
+          <div><img class="imagen-portada" src="assets/img/postres-portada.jpg" alt=""></div><h3>Postres</h3>
+          <p>Ideas dulces para preparar y compartir.</p>
+          <button class="ver" data-producto="Postres"><a href="postres/index.html">ver mas</a></button>
+        </article>
+
+        <article class="tarjeta flexbox-2">
+          <div><img class="imagen-portada" src="assets/img/galletas-chocolate.jpg" alt=""></div><h3>Galletas caseras</h3>
+          <p>Recetas sencillas para disfrutar en casa.</p>
+          <button class="ver" data-producto="Galletas caseras"><a href="galletas/index.html">ver mas</a></button>
+        </article>
+
+        <article class="tarjeta flexbox-4">
+          <div><img class="imagen-portada" src="assets/img/torta-vainilla.jpg" alt=""></div><h3>Tortas</h3>
+          <p>descubre nuevos sabores y recuerda los viejos.</p>
+          <button class="ver" data-producto="Tortas"><a href="tortas/index.html">ver mas</a></button>
+        </article>
+
+        <article class="tarjeta flexbox-5">
+          <div class="imagen-portada"><img src="assets/img/movimiento-diario-portada.jpg" alt=""></div><h3>Movimiento diario</h3>
+          <p>Ideas para incorporar movimiento a tu rutina.</p>
+          <button class="ver" data-producto="Movimiento diario">ver mas</button>
+        </article>
+        <article class="tarjeta flexbox-6">
+          <div class="imagen-portada"><img src="assets/img/pausas-activas-portada.jpg" alt="">  </div><h3>Pausas activas</h3>
+          <p>Pequeños descansos para despejar la mente.</p>
+          <button class="ver" data-producto="Pausas activas">ver mas</button>
+        </article>
+        <article class="tarjeta flexbox-7">
+          <div class="imagen-portada"><img src="assets/img/habitos-bienestar-portada.jpg" alt="">  </div><h3>Hábitos de bienestar</h3>
+          <p>Consejos sencillos para cuidar de ti.</p>
+          <button class="ver" data-producto="Hábitos de bienestar">ver mas</button>
+        </article>
+        <article class="tarjeta flexbox-8">
+          <div class="imagen-portada"><img src="assets/img/vida-equilibrada-portada.jpg" alt="">  </div><h3>Vida equilibrada</h3>
+          <p>Encuentra ideas que se adapten a tu día.</p>
+          <button class="ver" data-producto="Vida equilibrada">ver mas</button>
+        </article>
+        <article class="tarjeta flexbox-9">
+          <div><img class="imagen-portada" src="assets/img/Pfresa-creativo.jpg" alt=""></div><h3>Antojos creativos</h3>
+          <p>los mismos sabores en un envase diferente.</p>
+          <button class="ver" data-producto="Antojos creativos"><a href="antojos%20creativos/index.html">ver más</a></button>
+        </article>
+
+        <article class="tarjeta flexbox-10">
+          <div><img class="imagen-portada" src="assets/img/contactos.jpg" alt=""></div><h3>Comparte tus ideas</h3>
+          <p>Cuéntanos qué contenido te gustaría ver.</p>
+          <a class="boton-secundario" href="contactanos/index.html">Contáctanos</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside class="panel-carrito" id="panelCarrito" aria-label="Contenido del carrito">
+    <div class="carrito-cabecera">
+      <h2>Tu carrito</h2>
+      <button id="cerrarCarrito" class="cerrar" aria-label="Cerrar carrito">×</button>
+    </div>
+    <ul id="listaCarrito"><li class="carrito-vacio">Todavía no has agregado elementos.</li></ul>
+    <p class="total-carrito">
+    Total: <strong id="totalCarrito">$0</strong>
+    </p>
+
+    <button id="pedirWhatsApp" class="boton-pedir" type="button">Pedir por WhatsApp</button>
+    <button id="vaciarCarrito" class="boton-vaciar">Vaciar carrito</button>
+    <p class="nota-carrito">Tu pedido se prepara para enviarlo por WhatsApp.</p>
+  </aside>
+  <div class="fondo-panel" id="fondoPanel"></div>
+
+  <footer><p>© 2026 Dulce Equilibrio · Hecho con cariño</p></footer>
+  
+<script src="js/script.js"></script>
+
+
+<script>
+(() => {
+  if (!('serviceWorker' in navigator)) return;
+  const swPath = './sw.js';
+  const swScope = './';
+
+  navigator.serviceWorker.register(swPath, { scope: swScope })
+    .catch(error => console.warn('No se pudo activar el modo sin conexión:', error));
+
+  async function openOfflineGame() {
+    try {
+      await navigator.serviceWorker.ready;
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (!registration) return;
+      const offlineUrl = new URL('offline.html', registration.scope).href;
+      if (location.href !== offlineUrl) location.replace(offlineUrl);
+    } catch (error) {
+      console.warn('No se pudo abrir Raccoon Road sin conexión:', error);
+    }
+  }
+
+  window.addEventListener('offline', openOfflineGame);
+  if (!navigator.onLine) openOfflineGame();
+})();
+</script>
+
+</body>
+</html>
