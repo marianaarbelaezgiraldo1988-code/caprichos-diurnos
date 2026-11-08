@@ -24,8 +24,13 @@ if (formularioContacto) {
       botonEnviar.textContent = 'Enviando...';
     }
 
+    // El servidor gratuito puede tardar en despertar: avisamos si demora.
+    const avisoLento = setTimeout(() => {
+      if (estado) estado.textContent = 'El servidor está despertando, esto puede tardar hasta un minuto...';
+    }, 6000);
+
     try {
-      const respuesta = await fetch('/api/contacto', {
+      const respuesta = await fetch((window.DULCE_API || '') + '/api/contacto', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(datos)
@@ -44,6 +49,7 @@ if (formularioContacto) {
         estado.textContent = error.message || 'No se pudo conectar con el servidor. Inténtalo de nuevo.';
       }
     } finally {
+      clearTimeout(avisoLento);
       if (botonEnviar) {
         botonEnviar.disabled = false;
         botonEnviar.textContent = 'Enviar';
