@@ -25,6 +25,27 @@ app.use((req, res, next) => { req.body = req.body || {}; next(); });
 //  páginas, estilos, imágenes y scripts.
 app.use(express.static(FRONTEND_DIR));
 
+const ORIGENES_PERMITIDOS = (process.env.ALLOWED_ORIGINS || 'https://marianaarbelaezgiraldo1988-code.github.io')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+function permitirSitioPublico(req, res, next) {
+  const origen = req.headers.origin;
+  if (origen && ORIGENES_PERMITIDOS.includes(origen)) {
+    res.setHeader('Access-Control-Allow-Origin', origen);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Max-Age', '600');
+    res.setHeader('Vary', 'Origin');
+  }
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+}
+app.use('/api/contacto', permitirSitioPublico);
+app.use('/api/productos', permitirSitioPublico);
+
+
 // Recibe y guarda los mensajes del formulario de contacto.
 app.post('/api/contacto', async (req, res) => {
   try {
