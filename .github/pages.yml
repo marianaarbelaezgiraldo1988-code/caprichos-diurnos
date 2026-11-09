@@ -1,0 +1,32 @@
+name: Publicar sitio en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dulce_equilibrio/dulce_equilibrio_nuevo/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dulce_equilibrio/dulce_equilibrio_nuevo
+      - id: despliegue
+        uses: actions/deploy-pages@v4
