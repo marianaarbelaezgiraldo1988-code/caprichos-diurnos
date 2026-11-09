@@ -1,6 +1,6 @@
-// Dibuja las tarjetas de productos con los datos del panel de administración.
-// Cada página tiene una sección con data-categoria="Tortas" (o Postres, Galletas...).
-// El botón "agregar-carrito" funciona igual que siempre (ver script.js).
+
+
+
 (() => {
 const secciones = document.querySelectorAll('[data-categoria]');
 if (!secciones.length) return;
@@ -77,7 +77,7 @@ async function cargarSeccion(seccion) {
 
     let productos = null;
     try {
-    const respuesta = await fetch(urlApi('/api/productos') + '?categoria=' + encodeURIComponent(categoria), { cache: 'no-store' });
+          const respuesta = await fetch(urlApi('/api/productos') + '?categoria=' + encodeURIComponent(categoria));
     if (!respuesta.ok) throw new Error('Respuesta ' + respuesta.status);
     productos = await respuesta.json();
     guardar(clave, productos);
