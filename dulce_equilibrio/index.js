@@ -7,7 +7,6 @@ const Contacto = require('./modelos/Contacto');
 const Admin = require('./modelos/Admin');
 const auth = require('./middleware/auth');
 const { establecerAdmin } = require('./middleware/crearAdmin');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 const FRONTEND_DIR = path.join(__dirname, 'dulce_equilibrio_nuevo');
@@ -157,41 +156,41 @@ async function prepararAdministracion() {
 
   const { ADMIN_USUARIO, ADMIN_PASSWORD } = process.env;
   if (!ADMIN_USUARIO || !ADMIN_PASSWORD) {
-    console.warn('Aún no hay cuenta para el panel. Agrega ADMIN_USUARIO y ADMIN_PASSWORD al archivo .env y reinicia.');
-    return;
-  }
+  console.warn('Aún no hay cuenta para el panel. Agrega ADMIN_USUARIO y ADMIN_PASSWORD al archivo .env y reinicia.');
+  return;
+}
 
-  await establecerAdmin(ADMIN_USUARIO, ADMIN_PASSWORD);
-  console.log(`Cuenta del panel creada: "${ADMIN_USUARIO}". Ya puedes borrar ADMIN_PASSWORD del .env.`);
+await establecerAdmin(ADMIN_USUARIO, ADMIN_PASSWORD);
+console.log(`Cuenta del panel creada: "${ADMIN_USUARIO}". Ya puedes borrar ADMIN_PASSWORD del .env.`);
 }
 
 async function iniciarServidor() {
-  const mongoUri = process.env.MONGODB_URI;
+const mongoUri = process.env.MONGODB_URI;
 
   if (!mongoUri) {
-    console.error('Falta MONGODB_URI. Crea un archivo .env usando .env.example como guía.');
-    process.exit(1);
-  }
+  console.error('Falta MONGODB_URI. Crea un archivo .env usando .env.example como guía.');
+  process.exit(1);
+}
 
-  if (!process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32) {
-    console.error('Falta SESSION_SECRET (mínimo 32 caracteres) en el archivo .env.');
-    console.error('Genera una con: node -e "console.log(require(\'crypto\').randomBytes(32).toString(\'hex\'))"');
-    process.exit(1);
-  }
+if (!process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32) {
+  console.error('Falta SESSION_SECRET (mínimo 32 caracteres) en el archivo .env.');
+  console.error('Genera una con: node -e "console.log(require(\'crypto\').randomBytes(32).toString(\'hex\'))"');
+  process.exit(1);
+}
 
-  try {
+try {
     await mongoose.connect(mongoUri);
     console.log('MongoDB conectado correctamente.');
     await prepararAdministracion();
 
     app.listen(PORT, () => {
-      console.log(`Dulce Equilibrio está disponible en http://localhost:${PORT}`);
-      console.log(`Panel de administración: http://localhost:${PORT}/admin`);
-    });
-  } catch (error) {
-    console.error('No se pudo iniciar el servidor:', error.message);
-    process.exit(1);
-  }
+    console.log(`Dulce Equilibrio está disponible en http://localhost:${PORT}`);
+    console.log(`Panel de administración: http://localhost:${PORT}/admin`);
+  });
+} catch (error) {
+  console.error('No se pudo iniciar el servidor:', error.message);
+  process.exit(1);
+}
 }
 
 iniciarServidor();
