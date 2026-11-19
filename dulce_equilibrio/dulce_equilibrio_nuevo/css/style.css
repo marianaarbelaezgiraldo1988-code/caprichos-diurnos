@@ -951,3 +951,63 @@ section.consejos-seccion+section p {
 .consejo-card h3 {
     margin-top: 20px;
 }
+
+/* Mejoras Flexbox para Consejos y Ejercicios */
+.consejos-grid,
+section.consejos-seccion>.consejos-tarjetas {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 22px;
+}
+
+.consejos-grid>.consejo-card,
+.consejos-tarjetas>.consejo-card {
+    flex: 1 1 280px;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+
+    .consejos-grid>.consejo-card,
+    .consejos-tarjetas>.consejo-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* Acceso rápido al asistente de IA */
+.asistente-acceso-flotante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 22px;
+    background: linear-gradient(135deg, #b65f75, #d98b9c);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 30px;
+    box-shadow: 0 5px 18px rgba(120, 60, 75, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.asistente-acceso-flotante:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(120, 60, 75, 0.35);
+}
+
+@media (max-width: 600px) {
+    .asistente-acceso-flotante {
+        right: 15px;
+        bottom: 15px;
+        padding: 12px 17px;
+        font-size: 13px;
+    }
+}
